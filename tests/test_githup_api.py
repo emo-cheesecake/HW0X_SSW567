@@ -2,7 +2,7 @@
 # SSW 567 - Fall 2025
 
 import unittest
-from github_api import get_repos_and_commits
+from GithubAPI567_hw3a.github_api import get_repos_and_commits
 
 class TestGitHubAPI(unittest.TestCase):
 
