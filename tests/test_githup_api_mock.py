@@ -31,7 +31,7 @@ class TestGitHubAPI(unittest.TestCase):
 
         mock_get.side_effect = side_effect
 
-        result = get_user_repos_and_commits("anyuser")
+        result = get_repos_and_commits("anyuser")
 
         # Expected output (each repo has 1 commit)
         expected = [
@@ -48,7 +48,7 @@ class TestGitHubAPI(unittest.TestCase):
         mock_response.json.return_value = []  # no repos
         mock_get.return_value = mock_response
 
-        result = get_user_repos_and_commits("anyuser")
+        result = get_repos_and_commits("anyuser")
         self.assertEqual(result, [])  # should return an empty list
 
     @patch("GithubAPI567_hw3a.github_api.requests.get")
@@ -58,7 +58,7 @@ class TestGitHubAPI(unittest.TestCase):
         mock_get.return_value = mock_response
 
         with self.assertRaises(Exception):
-            get_user_repos_and_commits("anyuser")
+            get_repos_and_commits("anyuser")
 
 if __name__ == "__main__":
     unittest.main()
