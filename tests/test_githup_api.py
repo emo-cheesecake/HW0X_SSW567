@@ -2,6 +2,7 @@
 # SSW 567 - Fall 2025
 
 import unittest
+from unittest.mock import patch, MagicMock
 from GithubAPI567_hw3a.github_api import get_repos_and_commits
 
 class TestGitHubAPI(unittest.TestCase):
