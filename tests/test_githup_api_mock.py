@@ -12,10 +12,7 @@ class TestGitHubAPI(unittest.TestCase):
         # Mocks response for the repo API
         mock_repos_response = MagicMock()
         mock_repos_response.status_code = 200
-        mock_repos_response.json.return_value = [
-            {"name": "mocked_repo_1"},
-            {"name": "mocked_repo_2"}
-        ]
+        mock_repos_response.json.return_value = [{"name": "mocked_repo_1"}, {"name": "mocked_repo_2"}]
 
         # Mocks response for commits API
         mock_commit_response = MagicMock()
@@ -34,10 +31,7 @@ class TestGitHubAPI(unittest.TestCase):
         result = get_repos_and_commits("anyuser")
 
         # Expected output (each repo has 1 commit)
-        expected = [
-            "Repo: mocked_repo_1 Number of commits: 1",
-            "Repo: mocked_repo_2 Number of commits: 1"
-        ]
+        expected = [('mocked_repo_1', 1), ('mocked_repo_2', 1)]
 
         self.assertEqual(result, expected)
 
